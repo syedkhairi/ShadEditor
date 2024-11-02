@@ -1,0 +1,58 @@
+.tiptap :where(p):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.tiptap code:not(pre code) {
+	/* Remove the before and after pseudo elements */
+	@apply rounded border bg-transparent p-1 before:content-[''] after:content-[''];
+}
+
+.tiptap blockquote p {
+	@apply before:content-[''] after:content-[''];
+}
+
+.tiptap code,
+.tiptap pre {
+	font-variant-ligatures: normal;
+	font-family: 'Fira Code Variable', monospace !important;
+}
+
+ul[data-type='taskList'] {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul[data-type='taskList'] li {
+	display: flex;
+	align-items: center;
+}
+
+ul li,
+ol li {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+ul[data-type='taskList'] li label {
+	flex: 0 0 auto;
+	margin-right: 0.5rem;
+	user-select: none;
+}
+
+ul[data-type='taskList'] li div {
+	flex: 1 1 auto;
+}
+
+ul[data-type='taskList'] li[data-checked='true'] div {
+	@apply text-muted-foreground line-through;
+}
+
+input[type='checkbox'] {
+	@apply size-4 cursor-pointer rounded !important;
+}
+
+ul[data-type='taskList'] ul[data-type='taskList'] {
+	margin: 0;
+}
