@@ -27,6 +27,7 @@ const dependencies = [
 	'@tiptap/extension-text-style',
 	'@tiptap/extension-typography',
 	'@tiptap/extension-underline',
+	'@tiptap/extension-bubble-menu',
 	'@tiptap/pm',
 	'@tiptap/starter-kit',
 	'tiptap-extension-code-block-shiki',

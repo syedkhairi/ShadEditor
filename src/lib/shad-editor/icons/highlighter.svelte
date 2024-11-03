@@ -66,7 +66,7 @@
 			</Popover.Root>
 		</Tooltip.Trigger>
 		<Tooltip.Content>
-			<p>Highlighter (⌘⇧S)</p>
+			<p>Highlighter (⌘⇧H)</p>
 		</Tooltip.Content>
 	</Tooltip.Root>
 </Tooltip.Provider>

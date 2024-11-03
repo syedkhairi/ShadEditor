@@ -26,6 +26,7 @@
 	import TextAlign from '@tiptap/extension-text-align';
 	import { SmilieReplacer } from './custom/Extentions/SmilieReplacer.js';
 	import { ColorHighlighter } from './custom/Extentions/ColorHighlighter.js';
+	import BubbleMenu from './bubble-menu.svelte';
 
 	let editor: Editor;
 	let element: HTMLElement;
@@ -99,6 +100,16 @@
 	});
 </script>
 
+<!-- <div class="flex flex-row items-center gap-4">
+	<span>
+		<input type="checkbox" bind:checked={showPopupMenu} />
+		Show Popup Menu
+	</span>
+	<span>
+		<input type="checkbox" bind:checked={showToolbar} />
+		Show Toolbar
+	</span>
+</div> -->
 <div class={cn('flex flex-col rounded border', className)}>
 	{#if editor}
 		<EditorToolbar {editor} />

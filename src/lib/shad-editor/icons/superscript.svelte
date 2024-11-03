@@ -14,7 +14,7 @@
 			<Button
 				variant="ghost"
 				class={cn('size-8', editor.isActive('superscript') && 'bg-muted')}
-				onclick={() => editor.chain().focus().toggleSubscript().run()}
+				onclick={() => editor.chain().focus().toggleSuperscript().run()}
 			>
 				<Superscript />
 			</Button>
