@@ -27,7 +27,7 @@
 	"packageManager": "pnpm@9.7.1",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Tsuzat/ShadEditor.git"
+		"url": "git+https://github.com/Tsuzat/ShadEditor.git"
 	},
 	"license": "MIT",
 	"files": [
