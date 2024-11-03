@@ -1,6 +1,11 @@
 {
 	"name": "shadeditor",
 	"version": "0.0.1",
+	"description": "Text editor build for svelte with tiptap and shadcn",
+	"author": {
+		"name": "Tsuzat",
+		"url": "https://tsuzat.com"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -12,6 +17,19 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint ."
 	},
+	"bin": {
+		"shad-editor": "./bin/cli.js"
+	},
+	"engines": {
+		"pnpm": ">=9",
+		"node": ">=18"
+	},
+	"packageManager": "pnpm@9.7.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Tsuzat/ShadEditor.git"
+	},
+	"license": "MIT",
 	"files": [
 		"dist",
 		"!dist/**/*.test.*",
