@@ -8,7 +8,7 @@
 	<ColorPicker
 		bind:hex
 		sliderDirection="vertical"
-		label=""
+		label="Pick a color"
 		isTextInput={false}
 		isAlpha
 		--picker-indicator-size="1rem"

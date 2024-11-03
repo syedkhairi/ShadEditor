@@ -56,3 +56,14 @@ input[type='checkbox'] {
 ul[data-type='taskList'] ul[data-type='taskList'] {
 	margin: 0;
 }
+
+/* Color swatches */
+.color {
+	@apply whitespace-nowrap;
+}
+
+.color::before {
+	@apply mb-[0.15rem] mr-[0.1rem] inline-block size-[1rem] rounded border border-muted align-middle;
+	background-color: var(--color);
+	content: ' ';
+}

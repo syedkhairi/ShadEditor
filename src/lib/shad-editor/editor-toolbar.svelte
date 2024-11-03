@@ -15,6 +15,8 @@
 	import OrderedList from './icons/ordered-list.svelte';
 	import TaskList from './icons/task-list.svelte';
 	import Highlighter from './icons/highlighter.svelte';
+	import Superscript from './icons/superscript.svelte';
+	import Textcolor from './icons/textcolor.svelte';
 
 	export let editor: Editor;
 </script>
@@ -31,8 +33,10 @@
 	<Code {editor} />
 	<BlockQuote {editor} />
 	<Subscript {editor} />
+	<Superscript {editor} />
 	<ButtleList {editor} />
 	<OrderedList {editor} />
 	<TaskList {editor} />
+	<Textcolor {editor} />
 	<Highlighter {editor} />
 </div>

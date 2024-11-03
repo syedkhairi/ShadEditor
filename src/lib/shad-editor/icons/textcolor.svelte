@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Highlighter } from 'lucide-svelte';
+	import { Baseline } from 'lucide-svelte';
 	import { X } from 'lucide-svelte';
 	import { ChevronDown } from 'lucide-svelte';
 	import { type Editor } from '@tiptap/core';
@@ -9,7 +9,6 @@
 	import * as Popover from '$lib/components/ui/popover/index.js';
 	import { mode } from 'mode-watcher';
 	import ColorPicker from 'svelte-awesome-color-picker';
-	import Input from '$lib/components/ui/input/input.svelte';
 
 	export let editor: Editor;
 	export let color: string = '';
@@ -23,16 +22,16 @@
 					<Button
 						variant="ghost"
 						size="sm"
-						class={cn(editor.isActive('highlight') && 'bg-muted')}
+						class={cn(editor.isActive('textStyle') && 'bg-muted')}
 						onclick={() => editor.chain().focus()}
 					>
-						<Highlighter />
+						<Baseline />
 						<ChevronDown class="!size-3 text-muted-foreground" />
 					</Button>
 				</Popover.Trigger>
 				<Popover.Content class="bg-popover shadow-lg *:my-2">
 					<div class="flex items-center justify-between">
-						<h1 class="text-[1.2rem] font-bold">Pick a highlight color</h1>
+						<h1 class="text-[1.2rem] font-bold">Pick a text color</h1>
 						<Popover.Close>
 							<X class="size-4 text-muted-foreground" />
 						</Popover.Close>
@@ -46,7 +45,7 @@
 							on:input={(event) => {
 								if (event.detail.hex === undefined) return;
 								color = event.detail.hex;
-								editor.chain().focus().setHighlight({ color }).run();
+								editor.chain().focus().setColor(color).run();
 							}}
 							isDialog={false}
 							--picker-indicator-size="1rem"
@@ -58,15 +57,15 @@
 							variant="outline"
 							size="sm"
 							class="border-destructive text-destructive hover:bg-destructive hover:text-foreground"
-							onclick={() => editor.chain().focus().unsetHighlight().run()}
-							>Remove Highlight
+							onclick={() => editor.chain().focus().unsetColor().run()}
+							>Remove Color
 						</Button>
 					</div>
 				</Popover.Content>
 			</Popover.Root>
 		</Tooltip.Trigger>
 		<Tooltip.Content>
-			<p>Highlighter (⌘⇧S)</p>
+			<p>Text Color</p>
 		</Tooltip.Content>
 	</Tooltip.Root>
 </Tooltip.Provider>

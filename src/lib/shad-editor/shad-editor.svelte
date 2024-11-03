@@ -7,7 +7,7 @@
 
 	import { Editor } from '@tiptap/core';
 	import StarterKit from '@tiptap/starter-kit';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import EditorToolbar from './editor-toolbar.svelte';
 	import { cn } from '$lib/utils.js';
 
@@ -18,8 +18,13 @@
 	import TaskList from '@tiptap/extension-task-list';
 	import TaskItem from '@tiptap/extension-task-item';
 	import TextStyle from '@tiptap/extension-text-style';
+	import Color from '@tiptap/extension-color';
 	import Highlight from '@tiptap/extension-highlight';
 	import Text from '@tiptap/extension-text';
+	import Typography from '@tiptap/extension-typography';
+	import CodeBlockShiki from 'tiptap-extension-code-block-shiki';
+	import { SmilieReplacer } from './custom/Extentions/SmilieReplacer.js';
+	import { ColorHighlighter } from './custom/Extentions/ColorHighlighter.js';
 
 	let editor: Editor;
 	let element: HTMLElement;
@@ -53,7 +58,10 @@
 						}
 					}
 				}),
+				Typography,
 				Text,
+				TextStyle,
+				Color,
 				Highlight.configure({ multicolor: true }),
 				Underline,
 				Superscript,
@@ -67,7 +75,12 @@
 				TaskList,
 				TaskItem.configure({
 					nested: true
-				})
+				}),
+				CodeBlockShiki.configure({
+					defaultTheme: 'one-dark-pro'
+				}),
+				SmilieReplacer,
+				ColorHighlighter
 			],
 			autofocus: true,
 			onTransaction: (transaction) => {
@@ -76,11 +89,15 @@
 			}
 		});
 	});
+
+	onDestroy(() => {
+		if (editor) editor.destroy();
+	});
 </script>
 
 <div class={cn('flex flex-col rounded border', className)}>
 	{#if editor}
 		<EditorToolbar {editor} />
 	{/if}
-	<div bind:this={element} spellcheck="false" class="overflow-auto"></div>
+	<div bind:this={element} spellcheck="false" class="h-full w-full flex-1 overflow-auto"></div>
 </div>
