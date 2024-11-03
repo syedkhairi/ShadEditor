@@ -17,6 +17,8 @@
 	import Highlighter from './icons/highlighter.svelte';
 	import Superscript from './icons/superscript.svelte';
 	import Textcolor from './icons/textcolor.svelte';
+	import Align from './icons/textalign.svelte';
+	import Quickcolor from './icons/quickcolor.svelte';
 
 	export let editor: Editor;
 </script>
@@ -29,6 +31,7 @@
 	<Italic {editor} />
 	<Underline {editor} />
 	<Strikethrough {editor} />
+	<Align {editor} />
 	<Link {editor} />
 	<Code {editor} />
 	<BlockQuote {editor} />
@@ -37,6 +40,7 @@
 	<ButtleList {editor} />
 	<OrderedList {editor} />
 	<TaskList {editor} />
-	<Textcolor {editor} />
-	<Highlighter {editor} />
+	<!-- <Textcolor {editor} />
+	<Highlighter {editor} /> -->
+	<Quickcolor {editor} />
 </div>

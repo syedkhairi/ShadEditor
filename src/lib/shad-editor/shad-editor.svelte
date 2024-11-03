@@ -23,6 +23,7 @@
 	import Text from '@tiptap/extension-text';
 	import Typography from '@tiptap/extension-typography';
 	import CodeBlockShiki from 'tiptap-extension-code-block-shiki';
+	import TextAlign from '@tiptap/extension-text-align';
 	import { SmilieReplacer } from './custom/Extentions/SmilieReplacer.js';
 	import { ColorHighlighter } from './custom/Extentions/ColorHighlighter.js';
 
@@ -61,6 +62,9 @@
 				Typography,
 				Text,
 				TextStyle,
+				TextAlign.configure({
+					types: ['heading', 'paragraph']
+				}),
 				Color,
 				Highlight.configure({ multicolor: true }),
 				Underline,
