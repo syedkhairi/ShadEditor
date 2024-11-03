@@ -22,7 +22,7 @@
 					<Button
 						variant="ghost"
 						size="sm"
-						class={cn(editor.isActive('textStyle') && 'bg-muted')}
+						class={cn('h-8', editor.isActive('textStyle') && 'bg-muted')}
 						onclick={() => editor.chain().focus()}
 					>
 						<Baseline />

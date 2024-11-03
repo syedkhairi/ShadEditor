@@ -12,7 +12,7 @@
 		<Tooltip.Trigger>
 			<Button
 				variant="ghost"
-				size="icon"
+				class="size-8 p-0"
 				onclick={() => editor.chain().focus().undo().run()}
 				disabled={!editor.can().chain().focus().undo().run()}
 			>

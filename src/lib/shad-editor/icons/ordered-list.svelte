@@ -13,8 +13,7 @@
 		<Tooltip.Trigger>
 			<Button
 				variant="ghost"
-				size="icon"
-				class={cn(editor.isActive('orderedList') && 'bg-muted')}
+				class={cn('size-8', editor.isActive('orderedList') && 'bg-muted')}
 				onclick={() => editor.chain().focus().toggleOrderedList().run()}
 			>
 				<ListOrdered />

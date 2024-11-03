@@ -25,7 +25,11 @@
 		<Tooltip.Trigger>
 			<Popover.Root>
 				<Popover.Trigger>
-					<Button variant="ghost" size="sm" class={cn(editor.isActive('link') && 'bg-muted')}>
+					<Button
+						variant="ghost"
+						size="sm"
+						class={cn('h-8', editor.isActive('link') && 'bg-muted')}
+					>
 						<Link />
 						<ChevronDown class="!size-3 text-muted-foreground" />
 					</Button>

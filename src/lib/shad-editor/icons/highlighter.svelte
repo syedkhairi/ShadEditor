@@ -23,7 +23,7 @@
 					<Button
 						variant="ghost"
 						size="sm"
-						class={cn(editor.isActive('highlight') && 'bg-muted')}
+						class={cn('h-8', editor.isActive('highlight') && 'bg-muted')}
 						onclick={() => editor.chain().focus()}
 					>
 						<Highlighter />

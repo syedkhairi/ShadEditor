@@ -13,8 +13,7 @@
 		<Tooltip.Trigger>
 			<Button
 				variant="ghost"
-				size="icon"
-				class={cn(editor.isActive('bold') && 'bg-muted')}
+				class={cn('size-8', editor.isActive('bold') && 'bg-muted')}
 				onclick={() => editor.chain().focus().toggleBold().run()}
 			>
 				<Bold />

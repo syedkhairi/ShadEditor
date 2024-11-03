@@ -14,7 +14,7 @@
 			<Button
 				variant="ghost"
 				size="icon"
-				class={cn(editor.isActive('bulletList') && 'bg-muted')}
+				class={cn('size-8', editor.isActive('bulletList') && 'bg-muted')}
 				onclick={() => editor.chain().focus().toggleBulletList().run()}
 			>
 				<List />

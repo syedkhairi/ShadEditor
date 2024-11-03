@@ -19,5 +19,5 @@
 </script>
 
 <main class="my-10 flex h-full w-full flex-col items-center justify-center">
-	<ShadEditor class="h-[60%] min-h-[30rem] w-[80%] min-w-[40rem]" bind:content={$content} />
+	<ShadEditor class="h-[40rem]" content={$content} />
 </main>
