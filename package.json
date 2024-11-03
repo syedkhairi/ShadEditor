@@ -48,7 +48,24 @@
 		}
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0"
+		"@tiptap/core": "^2.9.1",
+		"@tiptap/extension-color": "^2.9.1",
+		"@tiptap/extension-highlight": "^2.9.1",
+		"@tiptap/extension-link": "^2.9.1",
+		"@tiptap/extension-subscript": "^2.9.1",
+		"@tiptap/extension-superscript": "^2.9.1",
+		"@tiptap/extension-task-item": "^2.9.1",
+		"@tiptap/extension-task-list": "^2.9.1",
+		"@tiptap/extension-text": "^2.9.1",
+		"@tiptap/extension-text-align": "^2.9.1",
+		"@tiptap/extension-text-style": "^2.9.1",
+		"@tiptap/extension-typography": "^2.9.1",
+		"@tiptap/extension-underline": "^2.9.1",
+		"@tiptap/pm": "^2.9.1",
+		"@tiptap/starter-kit": "^2.9.1",
+		"mode-watcher": "^0.4.1",
+		"svelte": "^5.0.0",
+		"tiptap-extension-code-block-shiki": "^0.4.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -82,24 +99,8 @@
 	},
 	"dependencies": {
 		"@fontsource/dm-sans": "^5.1.0",
-		"@tiptap/core": "^2.9.1",
-		"@tiptap/extension-color": "^2.9.1",
-		"@tiptap/extension-highlight": "^2.9.1",
-		"@tiptap/extension-link": "^2.9.1",
-		"@tiptap/extension-subscript": "^2.9.1",
-		"@tiptap/extension-superscript": "^2.9.1",
-		"@tiptap/extension-task-item": "^2.9.1",
-		"@tiptap/extension-task-list": "^2.9.1",
-		"@tiptap/extension-text": "^2.9.1",
-		"@tiptap/extension-text-align": "^2.9.1",
-		"@tiptap/extension-text-style": "^2.9.1",
-		"@tiptap/extension-typography": "^2.9.1",
-		"@tiptap/extension-underline": "^2.9.1",
-		"@tiptap/pm": "^2.9.1",
-		"@tiptap/starter-kit": "^2.9.1",
+		"child_process": "^1.0.2",
 		"fs-extra": "^11.2.0",
-		"mode-watcher": "^0.4.1",
-		"svelte-tiptap": "^2.0.2",
-		"tiptap-extension-code-block-shiki": "^0.4.0"
+		"svelte-tiptap": "^2.0.2"
 	}
 }
