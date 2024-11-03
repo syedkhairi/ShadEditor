@@ -40,7 +40,7 @@
 	<ButtleList {editor} />
 	<OrderedList {editor} />
 	<TaskList {editor} />
-	<!-- <Textcolor {editor} />
-	<Highlighter {editor} /> -->
+	<Textcolor {editor} />
+	<Highlighter {editor} />
 	<Quickcolor {editor} />
 </div>
