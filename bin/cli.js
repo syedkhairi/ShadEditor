@@ -30,7 +30,9 @@ const dependencies = [
 	'@tiptap/pm',
 	'@tiptap/starter-kit',
 	'tiptap-extension-code-block-shiki',
-	'mode-watcher'
+	'mode-watcher',
+	'lucide-svelte',
+	'svelte-awesome-color-picker'
 ];
 
 // Detect the package manager based on lock files
@@ -73,7 +75,7 @@ function installDependencies() {
 }
 
 async function init() {
-	const targetPath = './src/lib/component/shad-editor';
+	const targetPath = './src/lib/components/shad-editor';
 
 	try {
 		await fs.copy(sourcePath, targetPath);
