@@ -1,6 +1,6 @@
 {
 	"name": "shadeditor",
-	"version": "0.0.2",
+	"version": "0.0.2-rc-0.1",
 	"description": "Text editor build for svelte with tiptap and shadcn",
 	"author": {
 		"name": "Tsuzat",
@@ -18,7 +18,7 @@
 		"lint": "prettier --check . && eslint ."
 	},
 	"bin": {
-		"shad-editor": "./bin/cli.js"
+		"shadeditor": "./bin/cli.js"
 	},
 	"engines": {
 		"pnpm": ">=9",
@@ -97,6 +97,7 @@
 		"@tiptap/extension-underline": "^2.9.1",
 		"@tiptap/pm": "^2.9.1",
 		"@tiptap/starter-kit": "^2.9.1",
+		"fs-extra": "^11.2.0",
 		"mode-watcher": "^0.4.1",
 		"svelte-tiptap": "^2.0.2",
 		"tiptap-extension-code-block-shiki": "^0.4.0"
