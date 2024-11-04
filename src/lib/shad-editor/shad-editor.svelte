@@ -24,9 +24,14 @@
 	import Typography from '@tiptap/extension-typography';
 	import CodeBlockShiki from 'tiptap-extension-code-block-shiki';
 	import TextAlign from '@tiptap/extension-text-align';
+
 	import { SmilieReplacer } from './custom/Extentions/SmilieReplacer.js';
 	import { ColorHighlighter } from './custom/Extentions/ColorHighlighter.js';
 	import BubbleMenu from './bubble-menu.svelte';
+	import Table from '@tiptap/extension-table';
+	import TableRow from '@tiptap/extension-table-row';
+	import TableHeader from '@tiptap/extension-table-header';
+	import TableCell from '@tiptap/extension-table-cell';
 
 	let editor: Editor;
 	let element: HTMLElement;
@@ -85,7 +90,14 @@
 					defaultTheme: 'one-dark-pro'
 				}),
 				SmilieReplacer,
-				ColorHighlighter
+				ColorHighlighter,
+				Table.configure({
+					allowTableNodeSelection: true,
+					resizable: true
+				}),
+				TableRow,
+				TableHeader,
+				TableCell
 			],
 			autofocus: true,
 			onTransaction: (transaction) => {

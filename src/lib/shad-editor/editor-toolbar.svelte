@@ -19,6 +19,7 @@
 	import Textcolor from './icons/textcolor.svelte';
 	import Align from './icons/textalign.svelte';
 	import Quickcolor from './icons/quickcolor.svelte';
+	import Table from './icons/table.svelte';
 
 	export let editor: Editor;
 </script>
@@ -40,6 +41,7 @@
 	<ButtleList {editor} />
 	<OrderedList {editor} />
 	<TaskList {editor} />
+	<Table {editor} />
 	<Textcolor {editor} />
 	<Highlighter {editor} />
 	<Quickcolor {editor} />

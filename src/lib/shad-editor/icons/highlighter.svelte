@@ -9,7 +9,6 @@
 	import * as Popover from '$lib/components/ui/popover/index.js';
 	import { mode } from 'mode-watcher';
 	import ColorPicker from 'svelte-awesome-color-picker';
-	import Input from '$lib/components/ui/input/input.svelte';
 
 	export let editor: Editor;
 	export let color: string = '';
