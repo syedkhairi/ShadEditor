@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Editor</title>
+	<title>Shad Editor</title>
 </svelte:head>
 
 <ModeWatcher />

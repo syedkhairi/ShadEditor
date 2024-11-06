@@ -1,3 +1,4 @@
+import type { Editor } from '@tiptap/core';
 import { Node } from '@tiptap/pm/model';
 import { Decoration, DecorationSet } from '@tiptap/pm/view';
 
@@ -26,3 +27,17 @@ export default function (doc: Node): DecorationSet {
 
 	return DecorationSet.create(doc, decorations);
 }
+
+export const duplicateContent = (editor: Editor) => {
+	const { view } = editor;
+	const { state } = view;
+	const { selection } = state;
+
+	editor
+		.chain()
+		.insertContentAt(selection.to, selection.content().content.firstChild?.toJSON(), {
+			updateSelection: true
+		})
+		.focus(selection.to)
+		.run();
+};

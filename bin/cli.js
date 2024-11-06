@@ -32,12 +32,14 @@ const dependencies = [
 	'@tiptap/extension-table-cell',
 	'@tiptap/extension-table-header',
 	'@tiptap/extension-table-row',
+	'@tiptap/extension-image',
 	'@tiptap/pm',
 	'@tiptap/starter-kit',
 	'tiptap-extension-code-block-shiki',
 	'mode-watcher',
 	'lucide-svelte',
-	'svelte-awesome-color-picker'
+	'svelte-awesome-color-picker',
+	'svelte-tiptap'
 ];
 
 // Detect the package manager based on lock files

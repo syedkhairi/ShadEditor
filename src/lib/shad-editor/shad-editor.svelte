@@ -27,11 +27,11 @@
 
 	import { SmilieReplacer } from './custom/Extentions/SmilieReplacer.js';
 	import { ColorHighlighter } from './custom/Extentions/ColorHighlighter.js';
-	import BubbleMenu from './bubble-menu.svelte';
 	import Table from '@tiptap/extension-table';
 	import TableRow from '@tiptap/extension-table-row';
 	import TableHeader from '@tiptap/extension-table-header';
 	import TableCell from '@tiptap/extension-table-cell';
+	import { ImageExtension } from './custom/Extentions/ImageExtention.js';
 
 	let editor: Editor;
 	let element: HTMLElement;
@@ -77,6 +77,9 @@
 				Superscript,
 				Subscript,
 				Link.configure({
+					openOnClick: false,
+					autolink: true,
+					defaultProtocol: 'https',
 					HTMLAttributes: {
 						target: '_blank',
 						rel: 'noopener noreferrer'
@@ -97,7 +100,8 @@
 				}),
 				TableRow,
 				TableHeader,
-				TableCell
+				TableCell,
+				ImageExtension
 			],
 			autofocus: true,
 			onTransaction: (transaction) => {
@@ -112,16 +116,6 @@
 	});
 </script>
 
-<!-- <div class="flex flex-row items-center gap-4">
-	<span>
-		<input type="checkbox" bind:checked={showPopupMenu} />
-		Show Popup Menu
-	</span>
-	<span>
-		<input type="checkbox" bind:checked={showToolbar} />
-		Show Toolbar
-	</span>
-</div> -->
 <div class={cn('flex flex-col rounded border', className)}>
 	{#if editor}
 		<EditorToolbar {editor} />
