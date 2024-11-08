@@ -10,8 +10,12 @@
 	import { mode } from 'mode-watcher';
 	import ColorPicker from 'svelte-awesome-color-picker';
 
-	export let editor: Editor;
-	export let color: string = '';
+	interface Props {
+		editor: Editor;
+		color?: string;
+	}
+
+	let { editor, color = $bindable('') }: Props = $props();
 </script>
 
 <Tooltip.Provider>

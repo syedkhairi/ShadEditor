@@ -13,15 +13,6 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 
 	let { editor }: { editor: Editor } = $props();
-
-	let currentAlignment = $state('left');
-
-	$effect(() => {
-		if (editor.isActive({ textAlign: 'right' })) currentAlignment = 'right';
-		if (editor.isActive({ textAlign: 'center' })) currentAlignment = 'center';
-		if (editor.isActive({ textAlign: 'justify' })) currentAlignment = 'justify';
-		else currentAlignment = 'left';
-	});
 </script>
 
 <Tooltip.Provider>
