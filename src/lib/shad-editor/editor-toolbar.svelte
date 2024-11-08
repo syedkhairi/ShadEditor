@@ -21,6 +21,7 @@
 	import Quickcolor from './icons/quickcolor.svelte';
 	import Table from './icons/table.svelte';
 	import Image from './icons/image.svelte';
+	import Text from './icons/text.svelte';
 
 	export let editor: Editor;
 </script>
@@ -29,6 +30,7 @@
 	<Undo {editor} />
 	<Redo {editor} />
 	<Separator orientation="vertical" class="h-10" />
+	<Text {editor} />
 	<Bold {editor} />
 	<Italic {editor} />
 	<Underline {editor} />
