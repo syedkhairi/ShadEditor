@@ -7,7 +7,6 @@
 		$props();
 	import { Copy, Check, ChevronDown } from 'lucide-svelte';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
-	import { Input } from '$lib/components/ui/input/index.js';
 
 	let preRef: HTMLPreElement;
 

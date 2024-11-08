@@ -22,7 +22,6 @@
 	import Highlight from '@tiptap/extension-highlight';
 	import Text from '@tiptap/extension-text';
 	import Typography from '@tiptap/extension-typography';
-	import CodeBlockShiki from 'tiptap-extension-code-block-shiki';
 	import TextAlign from '@tiptap/extension-text-align';
 
 	import { SmilieReplacer } from './custom/Extentions/SmilieReplacer.js';
@@ -127,8 +126,6 @@
 			onTransaction: (transaction) => {
 				editor = transaction.editor;
 				content = editor.getHTML();
-
-				console.log('JSON', editor.getJSON());
 			}
 		});
 	});
