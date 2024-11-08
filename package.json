@@ -52,6 +52,7 @@
 		"@tiptap/extension-bubble-menu": "^2.9.1",
 		"@tiptap/extension-color": "^2.9.1",
 		"@tiptap/extension-highlight": "^2.9.1",
+		"@tiptap/extension-image": "^2.9.1",
 		"@tiptap/extension-link": "^2.9.1",
 		"@tiptap/extension-subscript": "^2.9.1",
 		"@tiptap/extension-superscript": "^2.9.1",
@@ -70,11 +71,13 @@
 		"@tiptap/starter-kit": "^2.9.1",
 		"mode-watcher": "^0.4.1",
 		"svelte": "^5.0.0",
-		"tiptap-extension-code-block-shiki": "^0.4.0",
 		"svelte-tiptap": "^2.0.2",
-		"@tiptap/extension-image": "^2.9.1"
+		"@catppuccin/highlightjs": "^1.0.0",
+		"@tiptap/extension-code-block-lowlight": "^2.9.1",
+		"lowlight": "^3.1.0"
 	},
 	"devDependencies": {
+		"@catppuccin/highlightjs": "^1.0.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/package": "^2.0.0",
@@ -106,10 +109,12 @@
 	},
 	"dependencies": {
 		"@fontsource/dm-sans": "^5.1.0",
+		"@tiptap/extension-code-block-lowlight": "^2.9.1",
 		"@vercel/analytics": "^1.3.2",
 		"@vercel/speed-insights": "^1.0.14",
 		"child_process": "^1.0.2",
 		"fs-extra": "^11.2.0",
+		"lowlight": "^3.1.0",
 		"svelte-tiptap": "^2.0.2"
 	}
 }

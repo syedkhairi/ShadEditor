@@ -16,12 +16,6 @@
 	@apply text-blue-600 underline;
 }
 
-.tiptap code,
-.tiptap pre {
-	font-variant-ligatures: normal;
-	font-family: 'Fira Code Variable', monospace !important;
-}
-
 ul[data-type='taskList'] {
 	list-style: none;
 	margin: 0;
@@ -124,4 +118,13 @@ ul[data-type='taskList'] ul[data-type='taskList'] {
 .tiptap.resize-cursor {
 	cursor: ew-resize;
 	cursor: col-resize;
+}
+
+/* Tiptap code block */
+.tiptap pre {
+	@apply m-0 flex h-fit overflow-auto !rounded-none bg-transparent p-0;
+}
+
+.tiptap pre code {
+	@apply flex-1 !rounded-none bg-transparent p-0 text-inherit;
 }

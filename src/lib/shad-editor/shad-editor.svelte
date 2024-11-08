@@ -32,6 +32,15 @@
 	import TableHeader from '@tiptap/extension-table-header';
 	import TableCell from '@tiptap/extension-table-cell';
 	import { ImageExtension } from './custom/Extentions/ImageExtention.js';
+	import { SvelteNodeViewRenderer } from 'svelte-tiptap';
+	import CodeExtended from './custom/code-extended.svelte';
+
+	// Lowlight
+	import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight';
+	import { all, createLowlight } from 'lowlight';
+	import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
+
+	const lowlight = createLowlight(all);
 
 	let editor: Editor;
 	let element: HTMLElement;
@@ -89,8 +98,19 @@
 				TaskItem.configure({
 					nested: true
 				}),
-				CodeBlockShiki.configure({
-					defaultTheme: 'one-dark-pro'
+				// CodeBlockShiki.configure({
+				// 	defaultTheme: 'one-dark-pro'
+				// }).extend({
+				// 	addNodeView() {
+				// 		return SvelteNodeViewRenderer(CodeExtended);
+				// 	}
+				// }),
+				CodeBlockLowlight.configure({
+					lowlight
+				}).extend({
+					addNodeView() {
+						return SvelteNodeViewRenderer(CodeExtended);
+					}
 				}),
 				SmilieReplacer,
 				ColorHighlighter,
@@ -107,6 +127,8 @@
 			onTransaction: (transaction) => {
 				editor = transaction.editor;
 				content = editor.getHTML();
+
+				console.log('JSON', editor.getJSON());
 			}
 		});
 	});
