@@ -1,5 +1,13 @@
 # ShadEditor
 
+Fork of original `ShadEditor`, however this one:
+* Improved use of Svelte 5 runes
+* Use of toggle instead of normal buttons, with disabled
+* Toggle buttons shows active state of cursor or selected text 
+* Remove files overhead and use of snippets
+* `<Tooltip.Provider>` to group tooltips so they don't overlap and close after another
+* Correct use of snippets in triggers for `shadcn-svelte` components to pass the props e.g. tooltips, dropdowns
+
 A ready to use text editor build for svelte with tiptap and shadcn ui.
 
 Creating a tiptap editor from scratch is a pain. This package provides a ready-to-use editor with all the features you need. You can install the package in your project but it will not give you flexibility. The recommended way is to use cli which installs all the dependencies for you and pastes the shadeditor component in your project.
