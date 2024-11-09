@@ -18,58 +18,59 @@
 	let { editor, color = $bindable('') }: Props = $props();
 </script>
 
-<Tooltip.Provider>
-	<Tooltip.Root>
-		<Tooltip.Trigger>
-			<Popover.Root>
-				<Popover.Trigger>
+<Tooltip.Root>
+	<Tooltip.Trigger>
+		<Popover.Root>
+			<Popover.Trigger>
+				{#snippet child({props})}
+				<Button
+					{...props}
+					variant="ghost"
+					size="sm"
+					class={cn('h-8', editor.isActive('highlight') && 'bg-muted')}
+					onclick={() => editor.chain().focus()}
+				>
+					<Highlighter />
+					<ChevronDown class="!size-3 text-muted-foreground" />
+				</Button>
+				{/snippet}
+			</Popover.Trigger>
+			<Popover.Content class="bg-popover shadow-lg *:my-2">
+				<div class="flex items-center justify-between">
+					<h1 class="text-[1.2rem] font-bold">Pick a highlight color</h1>
+					<Popover.Close>
+						<X class="size-4 text-muted-foreground" />
+					</Popover.Close>
+				</div>
+				<div class:dark={$mode === 'dark'}>
+					<ColorPicker
+						bind:hex={color}
+						sliderDirection="vertical"
+						isTextInput={false}
+						isAlpha
+						on:input={(event) => {
+							if (event.detail.hex === undefined) return;
+							color = event.detail.hex;
+							editor.chain().focus().setHighlight({ color }).run();
+						}}
+						isDialog={false}
+						--picker-indicator-size="1rem"
+						--input-size="1rem"
+					/>
+				</div>
+				<div class="flex items-center justify-end gap-2">
 					<Button
-						variant="ghost"
+						variant="outline"
 						size="sm"
-						class={cn('h-8', editor.isActive('highlight') && 'bg-muted')}
-						onclick={() => editor.chain().focus()}
-					>
-						<Highlighter />
-						<ChevronDown class="!size-3 text-muted-foreground" />
+						class="border-destructive text-destructive hover:bg-destructive hover:text-foreground"
+						onclick={() => editor.chain().focus().unsetHighlight().run()}
+						>Remove Highlight
 					</Button>
-				</Popover.Trigger>
-				<Popover.Content class="bg-popover shadow-lg *:my-2">
-					<div class="flex items-center justify-between">
-						<h1 class="text-[1.2rem] font-bold">Pick a highlight color</h1>
-						<Popover.Close>
-							<X class="size-4 text-muted-foreground" />
-						</Popover.Close>
-					</div>
-					<div class:dark={$mode === 'dark'}>
-						<ColorPicker
-							bind:hex={color}
-							sliderDirection="vertical"
-							isTextInput={false}
-							isAlpha
-							on:input={(event) => {
-								if (event.detail.hex === undefined) return;
-								color = event.detail.hex;
-								editor.chain().focus().setHighlight({ color }).run();
-							}}
-							isDialog={false}
-							--picker-indicator-size="1rem"
-							--input-size="1rem"
-						/>
-					</div>
-					<div class="flex items-center justify-end gap-2">
-						<Button
-							variant="outline"
-							size="sm"
-							class="border-destructive text-destructive hover:bg-destructive hover:text-foreground"
-							onclick={() => editor.chain().focus().unsetHighlight().run()}
-							>Remove Highlight
-						</Button>
-					</div>
-				</Popover.Content>
-			</Popover.Root>
-		</Tooltip.Trigger>
-		<Tooltip.Content>
-			<p>Highlighter (⌘⇧H)</p>
-		</Tooltip.Content>
-	</Tooltip.Root>
-</Tooltip.Provider>
+				</div>
+			</Popover.Content>
+		</Popover.Root>
+	</Tooltip.Trigger>
+	<Tooltip.Content>
+		<p>Highlighter (⌘⇧H)</p>
+	</Tooltip.Content>
+</Tooltip.Root>

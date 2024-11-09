@@ -1,8 +1,4 @@
 <script lang="ts">
-	let className: string = '';
-	export { className as class };
-	export let content: string = '';
-
 	import './editor.css';
 
 	import { Editor } from '@tiptap/core';
@@ -42,13 +38,49 @@
 
 	const lowlight = createLowlight(all);
 
-	let editor: Editor;
+	interface Props {
+		content: string | null | undefined;
+		className?: string;
+	}
+
+	let { content = $bindable(), className } : Props = $props();
+
+	let editor = $state<Editor | null>(null);
 	let element: HTMLElement;
+	let activeTools = $state({
+		isBold: false,
+		isItalic: false,
+		isUnderline: false,
+		isStrikethrough: false,
+		isBlockquote: false,
+		isCode: false,
+		isSuperscript: false,
+		isSubscript: false,
+		isBulletList: false,
+		isOrderedList: false,
+		isTaskList: false,
+	})
+
+	$effect(() => {
+		editor?.on('transaction', ({ editor }) => {
+			editor.isActive('bold') ? activeTools.isBold = true : activeTools.isBold = false;
+			editor.isActive('italic') ? activeTools.isItalic = true : activeTools.isItalic = false;
+			editor.isActive('underline') ? activeTools.isUnderline = true : activeTools.isUnderline = false;
+			editor.isActive('strike') ? activeTools.isStrikethrough = true : activeTools.isStrikethrough = false;
+			editor.isActive('code') ? activeTools.isCode = true : activeTools.isCode = false;
+			editor.isActive('blockquote') ? activeTools.isBlockquote = true : activeTools.isBlockquote = false;
+			editor.isActive('superscript') ? activeTools.isSuperscript = true : activeTools.isSuperscript = false;
+			editor.isActive('subscript') ? activeTools.isSubscript = true : activeTools.isSubscript = false;
+			editor.isActive('bulletList') ? activeTools.isBulletList = true : activeTools.isBulletList = false;
+			editor.isActive('orderedList') ? activeTools.isOrderedList = true : activeTools.isOrderedList = false;
+			editor.isActive('taskList') ? activeTools.isTaskList = true : activeTools.isTaskList = false;
+		})
+	})
 
 	onMount(() => {
 		editor = new Editor({
 			element,
-			content,
+			content: content || '',
 			editorProps: {
 				attributes: {
 					class:
@@ -132,7 +164,7 @@
 
 <div class={cn('flex flex-col rounded border', className)}>
 	{#if editor}
-		<EditorToolbar {editor} />
+		<EditorToolbar {editor} {activeTools} />
 	{/if}
 	<div bind:this={element} spellcheck="false" class="h-full w-full flex-1 overflow-auto"></div>
 </div>
