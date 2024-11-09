@@ -1,6 +1,6 @@
 {
 	"name": "shadeditor",
-	"version": "0.0.2-rc-0.6",
+	"version": "0.0.2-rc-0.7",
 	"description": "Text editor build for svelte with tiptap and shadcn",
 	"author": {
 		"name": "Tsuzat",
@@ -48,8 +48,10 @@
 		}
 	},
 	"peerDependencies": {
+		"@catppuccin/highlightjs": "^1.0.0",
 		"@tiptap/core": "^2.9.1",
 		"@tiptap/extension-bubble-menu": "^2.9.1",
+		"@tiptap/extension-code-block-lowlight": "^2.9.1",
 		"@tiptap/extension-color": "^2.9.1",
 		"@tiptap/extension-highlight": "^2.9.1",
 		"@tiptap/extension-image": "^2.9.1",
@@ -69,12 +71,10 @@
 		"@tiptap/extension-underline": "^2.9.1",
 		"@tiptap/pm": "^2.9.1",
 		"@tiptap/starter-kit": "^2.9.1",
+		"lowlight": "^3.1.0",
 		"mode-watcher": "^0.4.1",
 		"svelte": "^5.0.0",
-		"svelte-tiptap": "^2.0.2",
-		"@catppuccin/highlightjs": "^1.0.0",
-		"@tiptap/extension-code-block-lowlight": "^2.9.1",
-		"lowlight": "^3.1.0"
+		"svelte-tiptap": "^2.0.2"
 	},
 	"devDependencies": {
 		"@catppuccin/highlightjs": "^1.0.0",

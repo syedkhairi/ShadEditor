@@ -22,6 +22,7 @@
 	import Table from './icons/table.svelte';
 	import Image from './icons/image.svelte';
 	import Text from './icons/text.svelte';
+	import SearchReplace from './icons/search-replace.svelte';
 
 	export let editor: Editor;
 </script>
@@ -46,7 +47,8 @@
 	<TaskList {editor} />
 	<Image {editor} />
 	<Table {editor} />
-	<Textcolor {editor} />
-	<Highlighter {editor} />
+	<!-- <Textcolor {editor} />
+	<Highlighter {editor} /> -->
 	<Quickcolor {editor} />
+	<SearchReplace {editor} />
 </div>

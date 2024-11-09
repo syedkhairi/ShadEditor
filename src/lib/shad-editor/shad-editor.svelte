@@ -38,6 +38,7 @@
 	import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight';
 	import { all, createLowlight } from 'lowlight';
 	import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
+	import SearchAndReplace from './custom/Extentions/SearchAndReplace.js';
 
 	const lowlight = createLowlight(all);
 
@@ -97,13 +98,7 @@
 				TaskItem.configure({
 					nested: true
 				}),
-				// CodeBlockShiki.configure({
-				// 	defaultTheme: 'one-dark-pro'
-				// }).extend({
-				// 	addNodeView() {
-				// 		return SvelteNodeViewRenderer(CodeExtended);
-				// 	}
-				// }),
+				SearchAndReplace,
 				CodeBlockLowlight.configure({
 					lowlight
 				}).extend({

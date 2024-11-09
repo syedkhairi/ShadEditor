@@ -29,10 +29,7 @@ func main() {
 </script>
 
 <main class="flex h-screen w-full flex-col items-center justify-around">
-	<ShadEditor
-		class="h-[40rem] max-h-[50rem] w-[90%] sm:h-[90%] sm:w-[70%]"
-		bind:content={$content}
-	/>
+	<ShadEditor class="h-[40rem] max-h-[50rem]  sm:h-[90%] " bind:content={$content} />
 	<div class="text-center">
 		Made with ❤️ by
 		<a

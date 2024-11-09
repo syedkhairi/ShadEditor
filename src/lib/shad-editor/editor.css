@@ -128,3 +128,11 @@ ul[data-type='taskList'] ul[data-type='taskList'] {
 .tiptap pre code {
 	@apply flex-1 !rounded-none bg-transparent p-0 text-inherit;
 }
+
+.tiptap .search-result {
+	background-color: yellow;
+}
+
+.tiptap .search-result-current {
+	background-color: orange;
+}
