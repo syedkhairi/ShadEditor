@@ -20,12 +20,13 @@
 	}
 </script>
 
-<Tooltip.Provider>
-	<Tooltip.Root>
-		<Tooltip.Trigger>
-			<Popover.Root>
-				<Popover.Trigger>
+<Tooltip.Root>
+	<Tooltip.Trigger>
+		<Popover.Root>
+			<Popover.Trigger>
+				{#snippet child({props})}
 					<Button
+						{...props}
 						variant="ghost"
 						size="sm"
 						class={cn('h-8', editor.isActive('link') && 'bg-muted')}
@@ -33,40 +34,40 @@
 						<Link />
 						<ChevronDown class="!size-3 text-muted-foreground" />
 					</Button>
-				</Popover.Trigger>
-				<Popover.Content class="bg-popover shadow-lg *:my-2">
-					<div class="flex items-center justify-between">
-						<h1 class="text-xl font-bold">Link</h1>
-						<Popover.Close>
-							<X class="size-4 text-muted-foreground" />
-						</Popover.Close>
-					</div>
-					<p>Insert or remove link from selected text.</p>
-					<Input
-						placeholder="Enter link to attach.."
-						value={editor?.getAttributes('link').href}
-						onchange={(e) => {
-							//@ts-ignore
-							if (e !== null && e.target !== null) setLink(e.target.value);
-						}}
-						class="w-full"
-					/>
-					<div class="flex items-center justify-end gap-2">
-						<Button size="sm" onclick={() => {}}>
-							<Popover.Close>Insert</Popover.Close>
-						</Button>
-						<Button
-							variant="destructive"
-							onclick={() => {
-								editor.chain().focus().extendMarkRange('link').unsetLink().run();
-							}}>Remove</Button
-						>
-					</div>
-				</Popover.Content>
-			</Popover.Root>
-		</Tooltip.Trigger>
-		<Tooltip.Content>
-			<p>Add Or Remove Link</p>
-		</Tooltip.Content>
-	</Tooltip.Root>
-</Tooltip.Provider>
+				{/snippet}
+			</Popover.Trigger>
+			<Popover.Content class="bg-popover shadow-lg *:my-2">
+				<div class="flex items-center justify-between">
+					<h1 class="text-xl font-bold">Link</h1>
+					<Popover.Close>
+						<X class="size-4 text-muted-foreground" />
+					</Popover.Close>
+				</div>
+				<p>Insert or remove link from selected text.</p>
+				<Input
+					placeholder="Enter link to attach.."
+					value={editor?.getAttributes('link').href}
+					onchange={(e) => {
+						//@ts-ignore
+						if (e !== null && e.target !== null) setLink(e.target.value);
+					}}
+					class="w-full"
+				/>
+				<div class="flex items-center justify-end gap-2">
+					<Button size="sm" onclick={() => {}}>
+						<Popover.Close>Insert</Popover.Close>
+					</Button>
+					<Button
+						variant="destructive"
+						onclick={() => {
+							editor.chain().focus().extendMarkRange('link').unsetLink().run();
+						}}>Remove</Button
+					>
+				</div>
+			</Popover.Content>
+		</Popover.Root>
+	</Tooltip.Trigger>
+	<Tooltip.Content>
+		<p>Add Or Remove Link</p>
+	</Tooltip.Content>
+</Tooltip.Root>

@@ -35,6 +35,7 @@
 	import { all, createLowlight } from 'lowlight';
 	import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
 	import SearchAndReplace from './custom/Extentions/SearchAndReplace.js';
+	import { text } from '@sveltejs/kit';
 
 	const lowlight = createLowlight(all);
 
@@ -48,6 +49,8 @@
 	let editor = $state<Editor | null>(null);
 	let element: HTMLElement;
 	let activeTools = $state({
+		canUndo: false,
+		canRedo: false,
 		isBold: false,
 		isItalic: false,
 		isUnderline: false,
@@ -59,10 +62,23 @@
 		isBulletList: false,
 		isOrderedList: false,
 		isTaskList: false,
+		isParagraph: false,
+		isHeading1: false,
+		isHeading2: false,
+		isHeading3: false,
+		isCodeBlock: false,
+		isAlignCenter: false,
+		isAlignRight: false,
+		isAlignLeft: false,
+		isAlignJustify: false,
+		textColor: "",
+		highlightColor: ""
 	})
 
 	$effect(() => {
 		editor?.on('transaction', ({ editor }) => {
+			editor.can().undo() ? activeTools.canUndo = true : activeTools.canUndo = false;
+			editor.can().redo() ? activeTools.canRedo = true : activeTools.canRedo = false;
 			editor.isActive('bold') ? activeTools.isBold = true : activeTools.isBold = false;
 			editor.isActive('italic') ? activeTools.isItalic = true : activeTools.isItalic = false;
 			editor.isActive('underline') ? activeTools.isUnderline = true : activeTools.isUnderline = false;
@@ -74,10 +90,22 @@
 			editor.isActive('bulletList') ? activeTools.isBulletList = true : activeTools.isBulletList = false;
 			editor.isActive('orderedList') ? activeTools.isOrderedList = true : activeTools.isOrderedList = false;
 			editor.isActive('taskList') ? activeTools.isTaskList = true : activeTools.isTaskList = false;
+			editor.isActive('paragraph') ? activeTools.isParagraph = true : activeTools.isParagraph = false;
+			editor.isActive('heading', { level: 1 }) ? activeTools.isHeading1 = true : activeTools.isHeading1 = false;
+			editor.isActive('heading', { level: 2 }) ? activeTools.isHeading2 = true : activeTools.isHeading2 = false;
+			editor.isActive('heading', { level: 3 }) ? activeTools.isHeading3 = true : activeTools.isHeading3 = false;
+			editor.isActive('codeBlock') ? activeTools.isCodeBlock = true : activeTools.isCodeBlock = false;
+			editor.isActive({ textAlign: 'center' }) ? activeTools.isAlignCenter = true : activeTools.isAlignCenter = false;
+			editor.isActive({ textAlign: 'right' }) ? activeTools.isAlignRight = true : activeTools.isAlignRight = false;
+			editor.isActive({ textAlign: 'left' }) ? activeTools.isAlignLeft = true : activeTools.isAlignLeft = false;
+			editor.isActive({ textAlign: 'justify' }) ? activeTools.isAlignJustify = true : activeTools.isAlignJustify = false;
+			editor.getAttributes('textStyle').color ? activeTools.textColor = editor.getAttributes('textStyle').color : activeTools.textColor = "";
+			editor.isActive('highlight') ? activeTools.highlightColor = editor.getAttributes('highlight').color : activeTools.highlightColor = "";
 		})
 	})
 
 	onMount(() => {
+		// This run first time when component is mounted
 		editor = new Editor({
 			element,
 			content: content || '',
@@ -151,7 +179,7 @@
 			],
 			autofocus: true,
 			onTransaction: (transaction) => {
-				editor = transaction.editor;
+				editor = transaction.editor; // Unfortunately, this won't update the editor state, which is weird state signals thing
 				content = editor.getHTML();
 			}
 		});
